@@ -37,13 +37,14 @@ export default function GameSettings() {
 
   return (
     <Container className="pt-4">
-      <h2>Paramètres de jeu</h2>
+      <h2 className="mb-8">Paramètres de jeu</h2>
 
       <Form>
         {/* Mode de tirage */}
         <Form.Group className="mb-3">
           <Form.Label>Mode de tirage</Form.Label>
           <Form.Select
+            className="border border-2 border-primary"
             value={form.tirage}
             onChange={(e) => handleChange("tirage", e.target.value)}
           >
@@ -57,6 +58,7 @@ export default function GameSettings() {
         <Form.Group className="mb-3">
           <Form.Label>Durée (cartes totales par joueur)</Form.Label>
           <Form.Select
+            className="border border-2 border-primary"
             value={form.duree}
             onChange={(e) => handleChange("duree", Number(e.target.value))}
           >
@@ -72,6 +74,7 @@ export default function GameSettings() {
         <Form.Group className="mb-3">
           <Form.Label>Niveau max</Form.Label>
           <Form.Select
+            className="border border-2 border-primary"
             value={form.niveau}
             onChange={(e) => handleChange("niveau", Number(e.target.value))}
           >
@@ -85,9 +88,10 @@ export default function GameSettings() {
 
         {/* Pourcentage d'actions */}
         {form.tirage === "aleatoire" && (
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-8">
             <Form.Label>Pourcentage d'actions</Form.Label>
             <Form.Range
+              className="px-2 py-3 border border-2 border-primary rounded-1"
               value={form.pourcentageActions}
               min={0}
               max={100}

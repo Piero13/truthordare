@@ -68,13 +68,13 @@ export default function PlayerSettings() {
 
     return (
         <Container className="p-4">
-            <h2>Paramètres des joueurs</h2>
+            <h2 className="mb-8">Paramètres des joueurs</h2>
             <Form onSubmit={handleSubmit}>
-                <Accordion alwaysOpen>
+                <Accordion alwaysOpen className="mb-8">
                 {localPlayers.map((player, index) => (
-                    <Accordion.Item eventKey={String(index)} key={index} className="mb-3">
-                    <Accordion.Header>
-                        <Form.Group className="mb-0 w-100">
+                    <Accordion.Item eventKey={String(index)} key={index} className="mb-4">
+                    <Accordion.Header className="border border-2 border-primary rounded-1">
+                        <Form.Group className="mb-0 w-100 ">
                         <Form.Label>Nom du joueur {index + 1}</Form.Label>
                         <Form.Control
                             type="text"
@@ -142,8 +142,10 @@ export default function PlayerSettings() {
                 ))}
                 </Accordion>
 
-                <Button type="submit" className="bg-gradient-tertiary">Enregistrer</Button>
-                <Button variant="secondary" className="ms-2" onClick={() => navigate("/")}>
+                <Button type="submit" className="bg-gradient-tertiary border border-2 border-primary mb-4">
+                    Enregistrer
+                </Button>
+                <Button variant="secondary" className=" border border-2 border-primary" onClick={() => navigate("/")}>
                     Annuler
                 </Button>
             </Form>

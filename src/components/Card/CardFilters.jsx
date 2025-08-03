@@ -5,6 +5,7 @@ export default function CardFilters({ filters, onChange }) {
   return (
     <Form className="mb-4 d-flex flex-wrap gap-2">
       <Form.Select
+        className="border border-2 border-primary"
         value={filters.type}
         onChange={(e) => onChange({ ...filters, type: e.target.value })}
       >
@@ -14,6 +15,7 @@ export default function CardFilters({ filters, onChange }) {
       </Form.Select>
 
       <Form.Select
+        className="border border-2 border-primary"
         value={filters.genre}
         onChange={(e) => onChange({ ...filters, genre: e.target.value })}
       >
@@ -24,6 +26,7 @@ export default function CardFilters({ filters, onChange }) {
       </Form.Select>
 
       <Form.Select
+        className="border border-2 border-primary"
         value={filters.niveau}
         onChange={(e) => onChange({ ...filters, niveau: e.target.value })}
       >
@@ -34,6 +37,7 @@ export default function CardFilters({ filters, onChange }) {
       </Form.Select>
 
       <Form.Select
+        className="border border-2 border-primary"
         value={filters.acte}
         onChange={(e) => onChange({ ...filters, acte: e.target.value })}
       >

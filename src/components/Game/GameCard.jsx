@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
+import ImageCapture from "./ImageCapture";
+import ImageViewer from "./ImageViewer";
 
 export default function GameCard({ card, onValidate, onJoker }) {
   const [timeLeft, setTimeLeft] = useState(null);
+  const [capturedFile, setCapturedFile] = useState(null);
 
   // Redémarre le minuteur quand la carte change
   useEffect(() => {
@@ -24,47 +27,57 @@ export default function GameCard({ card, onValidate, onJoker }) {
   }, [card]);
 
   return (
-    <Card className="p-3 text-center">
-      <div className="d-flex justify-content-between">
-        <h5 className="mb-0 text-uppercase">{card.type}</h5>
-        <span>{card.type === "action" ? `${card.niveau} pts` : "1 pt"}</span>
-      </div>
-
-      {card.image && (
-        <div className="my-2 p-4">
-          <img src={card.image} alt="" style={{ maxWidth: "100%", borderRadius: "8px" }} />
+    <>
+      <Card className="p-4 text-center border border-2 border-primary">
+        <div className="d-flex justify-content-between">
+          <h5 className="mb-0 text-uppercase">{card.type}</h5>
+          <span>{card.type === "action" ? `${card.niveau} pts` : "1 pt"}</span>
         </div>
-      )}
 
-      <p style={{ whiteSpace: "pre-line" }}>{card.texte}</p>
+        {card.image && (
+          <div className="my-2 p-4">
+            <img src={card.image} alt="" style={{ maxWidth: "100%", borderRadius: "8px" }} />
+          </div>
+        )}
 
-      {timeLeft !== null && (
-        <div className="mb-2 fs-2">⏳ {timeLeft}s</div>
-      )}
+        <p style={{ whiteSpace: "pre-line" }}>{card.texte}</p>
 
-      <div className="d-flex justify-content-between mt-3">
-        <Button
-          className="p-2 bg-gradient-tertiary"
-          disabled={timeLeft !== null && timeLeft > 0}
-          onClick={() => onValidate(true)}
-        >
-          Valider
-        </Button>
-        <Button
-          className="p-2"
-          variant="warning" 
-          onClick={onJoker}
-        >
-          Joker
-        </Button>
-        <Button
-          className="text-secondary p-2"
-          variant="quaternary"
-          onClick={() => onValidate(false)}
-        >
-          Refuser
-        </Button>
-      </div>
-    </Card>
+        {/* Bouton appareil photo */}
+        <div className="my-3">
+          <ImageCapture onCapture={setCapturedFile} />
+        </div>
+
+        {timeLeft !== null && (
+          <div className="mb-2 fs-2">⏳ {timeLeft}s</div>
+        )}
+
+        <div className="d-flex justify-content-between mt-3">
+          <Button
+            className="border border-2 border-primary p-2 bg-gradient-tertiary w-30"
+            disabled={timeLeft !== null && timeLeft > 0}
+            onClick={() => onValidate(true)}
+          >
+            Valider
+          </Button>
+          <Button
+            className="border border-2 border-primary p-2 w-30"
+            variant="warning"
+            onClick={onJoker}
+          >
+            Joker
+          </Button>
+          <Button
+            className="border border-2 border-primary text-secondary p-2 w-30"
+            variant="quaternary"
+            onClick={() => onValidate(false)}
+          >
+            Refuser
+          </Button>
+        </div>
+      </Card>
+
+      {/* Modal aperçu */}
+      <ImageViewer file={capturedFile} onClose={() => setCapturedFile(null)} />
+    </>
   );
 }
