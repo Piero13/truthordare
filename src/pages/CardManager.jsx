@@ -64,8 +64,8 @@ export default function CardManager() {
       <h2 className="mb-4">Liste des cartes</h2>
 
       <CardFilters filters={filters} onChange={setFilters} />
-
-      <Button variant="primary" className="mb-4" onClick={handleAdd}>
+ 
+      <Button className="mb-4 bg-gradient-tertiary" onClick={handleAdd}>
         Ajouter une carte
       </Button>
 

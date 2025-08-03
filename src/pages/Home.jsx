@@ -56,14 +56,14 @@ export default function Home() {
       </div>
 
       {/* Bouton Jouer */}
-      <Button variant="primary" size="lg" onClick={handlePlay}>
+      <Button className="bg-gradient-tertiary" size="lg" onClick={handlePlay}>
         Jouer
       </Button>
 
       {/* Boutons paramètres */}
       <div className="mt-8">
         <Button
-          variant="secondary outline-primary"
+          variant="secondary"
           className="mb-4 border border-2 border-primary"
           onClick={() => navigate("/players")}
         >

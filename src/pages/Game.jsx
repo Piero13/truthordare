@@ -167,7 +167,7 @@ export default function Game() {
                 Scores finaux : {players[0].name} {gameState.scores[0]} pts -{" "}
                 {players[1].name} {gameState.scores[1]} pts
                 <div className="mt-3">
-                    <Button variant="primary" onClick={restartGame}>
+                    <Button className="bg-gradient-tertiary" onClick={restartGame}>
                     Rejouer
                     </Button>
                 </div>

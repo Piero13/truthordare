@@ -174,8 +174,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                 Annuler
             </Button>
             <Button
-                className="border, border-primary"
-                variant="primary" 
+                className="border, border-primary bg-gradient-tertiary"
                 onClick={handleSubmit}
             >
                 Enregistrer

@@ -98,7 +98,7 @@ export default function GameSettings() {
           </Form.Group>
         )}
 
-        <Button variant="primary" onClick={handleSave}>
+        <Button className="bg-gradient-tertiary" onClick={handleSave}>
           Enregistrer
         </Button>
       </Form>

@@ -10,8 +10,7 @@ export default function GameSetupModal({ show, players, onSelect }) {
         {players.map((p, index) => (
           <Button
             key={index}
-            variant="primary"
-            className="m-2"
+            className="m-2 bg-gradient-tertiary"
             onClick={() => onSelect(index)}
           >
             {p.name}

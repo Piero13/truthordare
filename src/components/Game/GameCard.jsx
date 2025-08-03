@@ -44,8 +44,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
 
       <div className="d-flex justify-content-between mt-3">
         <Button
-          className="p-2"
-          variant="primary"
+          className="p-2 bg-gradient-tertiary"
           disabled={timeLeft !== null && timeLeft > 0}
           onClick={() => onValidate(true)}
         >

@@ -9,8 +9,8 @@ $utilities: map-merge(
             values: (
                 primary: linear-gradient(to top left, #001B48, $primary),
                 secondary: linear-gradient(to top left, $secondary, #f7d393),
-                tertiary: linear-gradient(to top left, #6e4b4b, $tertiary),
-                quaternary: linear-gradient(to top left, #ab73b6, $quaternary)
+                tertiary: linear-gradient(to top left, #ab73b6, #531f5e),
+                quaternary: linear-gradient(to top left, #ab73b6, #d63384)
             )
         ),
         "background": (

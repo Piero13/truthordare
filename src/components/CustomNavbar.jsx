@@ -14,7 +14,7 @@ export default function CustomNavbar() {
 
     return (
         <Navbar
-            className="p-3 bg-gradient-primary"
+            className="p-3 bg-gradient-quaternary"
             expand="lg"
             collapseOnSelect
             expanded={expanded}
