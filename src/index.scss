@@ -1,0 +1,83 @@
+@import './styles/variables_overrides';
+@import './styles/utilities_custom';
+@import './styles/mixins';
+
+@import 'bootstrap/scss/bootstrap';
+
+/*Default styles*/
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root, * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-decoration: none;
+  font-size: 16px;
+  color: $tertiary;
+  list-style: none;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  width: 100%;
+
+  min-width: 320px;
+}
+
+main {
+  min-height: calc(100svh - 235px);
+  background-color: $secondary;
+
+  @media (max-width: 768px) {
+    min-height: calc(100svh - 100px);
+  }
+
+  @media (min-width: 768.01px) and (max-width: 992px) {
+    min-height: calc(100svh - 200px);
+  }
+
+}
+
+a, ul, li {
+  color: $tertiary !important;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/*Custom styles*/
+.link {
+  @include link;
+}
+
+.navbar-toggler {
+  width: fit-content;
+  height: auto;
+}
+
+.navbar-toggler-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg);
+}

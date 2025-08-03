@@ -1,0 +1,30 @@
+@mixin link {
+    position: relative;
+    padding: 0 5px;
+    margin: 20px;
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+
+    &:after {
+        content: "";
+        position: absolute;
+        background-color: $quaternary;
+        height: 3px;
+        left: 0;
+        right: 0;
+        color: $tertiary;
+        bottom: -5px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover, &.active {
+        color: $quaternary;
+
+        &:after {
+            transform: scaleX(1);
+        }
+    }
+}
