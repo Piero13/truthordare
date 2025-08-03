@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { Container, Alert, Button } from "react-bootstrap";
 import { useGameStore } from "../context/gameStore";
 import { getAll } from "../db/db";
-import GameSetupModal from "../components/game/GameSetupModal";
-import GameScoreboard from "../components/game/GameScoreboard";
-import GameControls from "../components/game/GameControls";
-import GameCard from "../components/game/GameCard";
+import GameSetupModal from "../components/Game/GameSetupModal";
+import GameScoreboard from "../components/Game/GameScoreboard";
+import GameControls from "../components/Game/GameControls";
+import GameCard from "../components/Game/GameCard";
 
 export default function Game() {
   const {
