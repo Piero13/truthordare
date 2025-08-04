@@ -42,12 +42,12 @@ body {
   display: flex;
   width: 100%;
   min-width: 320px;
+  background: linear-gradient(to top left, $secondary, #f3c1e2);
 }
 
 main {
   min-height: calc(100svh - 235px);
-  background-color: $secondary;
-
+  background: center / 75% fixed no-repeat url("./assets/evil_heart.png");
   @media (max-width: 768px) {
     min-height: calc(100svh - 100px);
   }
@@ -80,3 +80,9 @@ a:hover {
 .navbar-toggler-icon {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg);
 }
+
+.table-fixed {
+  table-layout: fixed;
+  width: 100%;
+}
+

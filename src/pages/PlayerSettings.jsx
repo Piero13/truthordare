@@ -72,10 +72,10 @@ export default function PlayerSettings() {
             <Form onSubmit={handleSubmit}>
                 <Accordion alwaysOpen className="mb-8">
                 {localPlayers.map((player, index) => (
-                    <Accordion.Item eventKey={String(index)} key={index} className="mb-4">
+                    <Accordion.Item eventKey={String(index)} key={index} className="mb-4 bs-primary">
                     <Accordion.Header className="border border-2 border-primary rounded-1">
-                        <Form.Group className="mb-0 w-100 ">
-                        <Form.Label>Nom du joueur {index + 1}</Form.Label>
+                        <Form.Group className="mb-0 w-100">
+                        <Form.Label className="text-primary">Nom du joueur {index + 1}</Form.Label>
                         <Form.Control
                             type="text"
                             value={player.name}

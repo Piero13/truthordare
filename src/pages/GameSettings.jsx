@@ -41,8 +41,8 @@ export default function GameSettings() {
 
       <Form>
         {/* Mode de tirage */}
-        <Form.Group className="mb-3">
-          <Form.Label>Mode de tirage</Form.Label>
+        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+          <Form.Label className="text-primary">Mode de tirage</Form.Label>
           <Form.Select
             className="border border-2 border-primary"
             value={form.tirage}
@@ -55,8 +55,8 @@ export default function GameSettings() {
         </Form.Group>
 
         {/* Durée */}
-        <Form.Group className="mb-3">
-          <Form.Label>Durée (cartes totales par joueur)</Form.Label>
+        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+          <Form.Label className="text-primary">Durée (cartes totales par joueur)</Form.Label>
           <Form.Select
             className="border border-2 border-primary"
             value={form.duree}
@@ -71,8 +71,8 @@ export default function GameSettings() {
         </Form.Group>
 
         {/* Niveau max */}
-        <Form.Group className="mb-3">
-          <Form.Label>Niveau max</Form.Label>
+        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+          <Form.Label className="text-primary">Niveau max</Form.Label>
           <Form.Select
             className="border border-2 border-primary"
             value={form.niveau}
@@ -88,17 +88,20 @@ export default function GameSettings() {
 
         {/* Pourcentage d'actions */}
         {form.tirage === "aleatoire" && (
-          <Form.Group className="mb-8">
-            <Form.Label>Pourcentage d'actions</Form.Label>
-            <Form.Range
-              className="px-2 py-3 border border-2 border-primary rounded-1"
-              value={form.pourcentageActions}
-              min={0}
-              max={100}
-              step={10}
-              onChange={(e) => handleChange("pourcentageActions", Number(e.target.value))}
-            />
-            <div>{form.pourcentageActions}%</div>
+          <Form.Group className="mb-8 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+            <Form.Label className="text-primary">Pourcentage d'actions</Form.Label>
+            <div className="d-flex align-items-center">
+              <Form.Range
+                className="px-2 py-3 me-2 border border-2 border-primary rounded-1 bg-white"
+                value={form.pourcentageActions}
+                min={0}
+                max={100}
+                step={10}
+                onChange={(e) => handleChange("pourcentageActions", Number(e.target.value))}
+              />
+              <div className="w-content">{form.pourcentageActions}%</div>
+            </div>
+            
           </Form.Group>
         )}
 

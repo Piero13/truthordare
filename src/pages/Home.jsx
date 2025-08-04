@@ -41,7 +41,7 @@ export default function Home() {
           <Row className="mb-8">
             {players.map((p, i) => (
               <Col key={i}>
-                <Card className="pt-3 px-3 border border-primary text-primary">
+                <Card className="pt-3 px-3 border border-2 border-primary text-primary bs-primary">
                   <h5>{p.name || `Joueur ${i + 1}`}</h5>
                   {hasOngoingGame ? (
                     <p>{gameState.scores[i]} pts</p>
@@ -56,7 +56,7 @@ export default function Home() {
       </div>
 
       {/* Bouton Jouer */}
-      <Button className="bg-gradient-tertiary" size="lg" onClick={handlePlay}>
+      <Button className="bg-gradient-tertiary border border-2 border-primary" size="lg" onClick={handlePlay}>
         Jouer
       </Button>
 

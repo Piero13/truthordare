@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import Logo from '../assets/evil_heart.png';
 
 export default function CustomNavbar() {
     const location = useLocation();
@@ -14,7 +15,7 @@ export default function CustomNavbar() {
 
     return (
         <Navbar
-            className="p-3 bg-gradient-quaternary"
+            className="px-3 bg-gradient-quaternary"
             expand="lg"
             collapseOnSelect
             expanded={expanded}
@@ -22,6 +23,7 @@ export default function CustomNavbar() {
         >
             <Container fluid className="justify-content-between">
                 <div className="col col-md-5 d-flex align-items-center">
+                    <img src={ Logo } alt="" className="w-5 me-2"/>
                     <h1 className='font-title text-secondary fw-bold fs-4 fs-md-2 m-0 text-start'>Truth or Dare</h1>
                 </div>
                 <Navbar.Toggle className="w-auto p-1 border-secondary d-flex justify-content-center align-items-center" aria-controls="responsive-navbar-nav" />

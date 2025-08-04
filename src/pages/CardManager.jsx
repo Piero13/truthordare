@@ -61,7 +61,7 @@ export default function CardManager() {
 
   return (
     <Container className="p-4">
-      <h2 className="mb-4">Liste des cartes</h2>
+      <h2 className="mb-4 text-primary">Liste des cartes</h2>
 
       <CardFilters filters={filters} onChange={setFilters} />
  

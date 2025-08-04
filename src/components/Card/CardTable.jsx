@@ -2,12 +2,12 @@ import { Table } from "react-bootstrap";
 
 export default function CardTable({ cards, onEdit }) {
   return (
-    <Table striped bordered hover>
+    <Table size="sm" striped bordered hover className="bs-primary border border-2 border-primary table-fixed">
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Niveau</th>
-          <th>Texte</th>
+          <th className="text-primary bg-sec" style={{ width: '15%' }}>Type</th>
+          <th className="text-primary" style={{ width: '15%' }}>Lvl</th>
+          <th className="text-primary"  style={{ width: 'auto' }}>Texte</th>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,7 @@ export default function CardTable({ cards, onEdit }) {
             <td>{card.type}</td>
             <td>{card.type === "action" ? card.niveau : "—"}</td>
             <td style={{
-              maxWidth: "250px",
+              maxWidth: "220px",
               whiteSpace: "nowrap",
               overflow: "hidden",
               textOverflow: "ellipsis"
