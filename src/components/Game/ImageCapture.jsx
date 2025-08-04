@@ -23,7 +23,7 @@ export default function ImageCapture({ onCapture }) {
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/*,video/*"
+        accept="image/*"
         capture="environment"
         style={{ display: "none" }}
         onChange={handleChange}
