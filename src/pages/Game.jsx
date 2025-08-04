@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Container, Alert, Button } from "react-bootstrap";
 import { useGameStore } from "../context/gameStore";
 import { getAll } from "../db/db";
+import { motion, AnimatePresence } from "framer-motion"; // eslint-disable-line no-unused-vars
 import GameSetupModal from "../components/Game/GameSetupModal";
 import GameScoreboard from "../components/Game/GameScoreboard";
 import GameControls from "../components/Game/GameControls";
@@ -174,20 +175,30 @@ export default function Game() {
                 </Alert>
             )}
 
-            {!gameState.gameOver && gameState.currentCard && (
-                <GameCard
-                card={gameState.currentCard}
-                onValidate={handleValidate}
-                onJoker={handleJoker}
+            {!gameState.gameOver && !gameState.currentCard && (
+                <GameControls
+                  modeTirage={gameSettings.tirage}
+                  onChoose={handleChoose}
                 />
             )}
 
-            {!gameState.gameOver && !gameState.currentCard && (
-                <GameControls
-                modeTirage={gameSettings.tirage}
-                onChoose={handleChoose}
-                />
+            <AnimatePresence mode="wait">
+            {!gameState.gameOver && gameState.currentCard && (
+                <motion.div
+                  key={gameState.currentCard.id}
+                  initial={{ opacity:0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <GameCard
+                    card={gameState.currentCard}
+                    onValidate={handleValidate}
+                    onJoker={handleJoker}
+                  />
+                </motion.div>
             )}
+            </AnimatePresence>
         </>
       )}
     </Container>

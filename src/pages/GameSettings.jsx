@@ -36,8 +36,8 @@ export default function GameSettings() {
   };
 
   return (
-    <Container className="pt-4">
-      <h2 className="mb-8">Paramètres de jeu</h2>
+    <Container className="p-4">
+      <h2 className="mb-8 text-primary">Paramètres de jeu</h2>
 
       <Form>
         {/* Mode de tirage */}
@@ -102,7 +102,7 @@ export default function GameSettings() {
           </Form.Group>
         )}
 
-        <Button className="bg-gradient-tertiary" onClick={handleSave}>
+        <Button className="bg-gradient-tertiary border border-2 border-primary p-2" onClick={handleSave}>
           Enregistrer
         </Button>
       </Form>

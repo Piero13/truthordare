@@ -65,7 +65,7 @@ export default function CardManager() {
 
       <CardFilters filters={filters} onChange={setFilters} />
  
-      <Button className="mb-4 bg-gradient-tertiary" onClick={handleAdd}>
+      <Button className="mb-4 bg-gradient-tertiary border border-2 border-primary p-2" onClick={handleAdd}>
         Ajouter une carte
       </Button>
 

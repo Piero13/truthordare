@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <Container className=" text-center p-4">
-      <h1 className="mb-8">Truth or Dare</h1>
+      <h1 className="mb-8 text-primary">Truth or Dare</h1>
 
       <div className="d-flex justify-content-center">
         {/* Affichage joueurs si existants */}
@@ -41,7 +41,7 @@ export default function Home() {
           <Row className="mb-8">
             {players.map((p, i) => (
               <Col key={i}>
-                <Card className="pt-3 px-3 border border-primary">
+                <Card className="pt-3 px-3 border border-primary text-primary">
                   <h5>{p.name || `Joueur ${i + 1}`}</h5>
                   {hasOngoingGame ? (
                     <p>{gameState.scores[i]} pts</p>
@@ -64,14 +64,14 @@ export default function Home() {
       <div className="mt-8">
         <Button
           variant="secondary"
-          className="mb-4 border border-2 border-primary"
+          className="mb-4 border border-2 border-primary p-2 text-primary"
           onClick={() => navigate("/players")}
         >
           Paramètres des joueurs
         </Button>
         <Button
           variant="secondary"
-          className="border border-2 border-primary"
+          className="border border-2 border-primary p-2 text-primary"
           onClick={() => navigate("/settings")}
         >
           Paramètres de jeu

@@ -68,7 +68,7 @@ export default function PlayerSettings() {
 
     return (
         <Container className="p-4">
-            <h2 className="mb-8">Paramètres des joueurs</h2>
+            <h2 className="mb-8 text-primary">Paramètres des joueurs</h2>
             <Form onSubmit={handleSubmit}>
                 <Accordion alwaysOpen className="mb-8">
                 {localPlayers.map((player, index) => (
@@ -142,10 +142,10 @@ export default function PlayerSettings() {
                 ))}
                 </Accordion>
 
-                <Button type="submit" className="bg-gradient-tertiary border border-2 border-primary mb-4">
+                <Button type="submit" className="bg-gradient-tertiary border border-2 border-primary mb-4 p-2">
                     Enregistrer
                 </Button>
-                <Button variant="secondary" className=" border border-2 border-primary" onClick={() => navigate("/")}>
+                <Button variant="secondary" className=" border border-2 border-primary p-2 text-primary" onClick={() => navigate("/")}>
                     Annuler
                 </Button>
             </Form>

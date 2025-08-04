@@ -6,11 +6,11 @@ export default function GameSetupModal({ show, players, onSelect }) {
       <Modal.Header>
         <Modal.Title>Qui commence ?</Modal.Title>
       </Modal.Header>
-      <Modal.Body className="text-center">
+      <Modal.Body className="text-center px-4">
         {players.map((p, index) => (
           <Button
             key={index}
-            className="m-2 bg-gradient-tertiary"
+            className="p-2 mb-4 bg-gradient-tertiary border border-2 border-primary"
             onClick={() => onSelect(index)}
           >
             {p.name}

@@ -28,10 +28,10 @@ export default function GameCard({ card, onValidate, onJoker }) {
 
   return (
     <>
-      <Card className="p-4 text-center border border-2 border-primary">
+      <Card className="p-4 text-center border border-2 border-primary bs-primary">
         <div className="d-flex justify-content-between">
-          <h5 className="mb-0 text-uppercase">{card.type}</h5>
-          <span>{card.type === "action" ? `${card.niveau} pts` : "1 pt"}</span>
+          <h5 className="mb-0 text-uppercase text-primary">{card.type}</h5>
+          <span className="text-primary">{card.type === "action" ? `${card.niveau} pts` : "1 pt"}</span>
         </div>
 
         {card.image && (
@@ -40,7 +40,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
           </div>
         )}
 
-        <p style={{ whiteSpace: "pre-line" }}>{card.texte}</p>
+        <p className="text-primary" style={{ whiteSpace: "pre-line" }}>{card.texte}</p>
 
         {/* Bouton appareil photo */}
         <div className="my-3">
@@ -48,7 +48,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
         </div>
 
         {timeLeft !== null && (
-          <div className="mb-2 fs-2">⏳ {timeLeft}s</div>
+          <div className="mb-2 fs-2 text-primary">⏳ {timeLeft}s</div>
         )}
 
         <div className="d-flex justify-content-between mt-3">

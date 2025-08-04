@@ -13,13 +13,12 @@ export const tenueOptions = [
 
 export const actesOptions = [
   { value: "1", label: "Soft (caresses, masturbation...)" },
-  { value: "2", label: "Oral passif" },
-  { value: "3", label: "Oral actif" },
-  { value: "4", label: "Soumission" },
+  { value: "2", label: "Oral" },
+  { value: "3", label: "Anal soft (doigt, langue...)" },
+  { value: "4", label: "Anal hard (jouet, sexe...)" },
   { value: "5", label: "Domination" },
-  { value: "6", label: "Anal soft passif (doigt, langue...)" },
-  { value: "7", label: "Anal soft actif" },
-  { value: "8", label: "Anal hard passif (jouet, sexe...)" },
-  { value: "9", label: "Anal hard actif" },
-  { value: "10", label: "Photo / vidéo" }
+  { value: "6", label: "Soumission" },
+  { value: "7", label: "Photo" },
+  { value: "8", label: "Vidéo" },
+  { value: "9", label: "Fun (scénarios, défis..." }
 ];
