@@ -53,7 +53,12 @@ export default function Game() {
     const currentPlayerData = players[playerIndex];
 
     return gameState.availableCards.filter(card => {
-      if (card.genre && card.genre !== "all" && card.genre !== currentPlayerData.genre) {
+      if (
+        card.genre &&
+        card.genre !== "all" &&
+        card.genre !== "M" && // ✅ genre mixte autorisé pour tout le monde
+        card.genre !== currentPlayerData.genre
+      ) {
         return false;
       }
       if (card.type === "action" && card.actes?.length) {

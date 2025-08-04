@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Form, Button, Modal, Accordion } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useGameStore } from "../context/gameStore";
-import { genreOptions, tenueOptions, actesOptions } from "../datas/playerOptions";
+import { genreOptionsPlayers, tenueOptions, actesOptions } from "../datas/playerOptions";
 
 export default function PlayerSettings() {
     const navigate = useNavigate();
@@ -87,7 +87,7 @@ export default function PlayerSettings() {
                         <Form.Group className="mb-2">
                         <Form.Label>Genre</Form.Label>
                         <div>
-                            {genreOptions.map(opt => (
+                            {genreOptionsPlayers.map(opt => (
                             <Form.Check
                                 className="text-start"
                                 key={opt.value}

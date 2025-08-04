@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Button } from "react-bootstrap";
-import { Clapperboard } from "lucide-react";
+// import { Clapperboard } from "lucide-react";
+import { BsCameraVideo } from "react-icons/bs"
 
 export default function VideoCapture({ onCapture }) {
   const fileInputRef = useRef(null);
@@ -17,7 +18,7 @@ export default function VideoCapture({ onCapture }) {
         className="bg-secondary border border-2 border-primary"
         onClick={() => fileInputRef.current?.click()}
       >
-        <Clapperboard size={36} color="#531f5e"/>
+        <BsCameraVideo size={36} style={{fill: "#531f5e"}}/>
       </Button>
       <input
         type="file"

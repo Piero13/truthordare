@@ -2,8 +2,11 @@
 
 export const genreOptions = [
   { value: "H", label: "Homme" },
-  { value: "F", label: "Femme" }
+  { value: "F", label: "Femme" },
+  { value: "M", label: "Mixte"}
 ];
+
+export const genreOptionsPlayers = genreOptions.filter(opt => opt.value !== "M");
 
 export const tenueOptions = [
   { value: "1", label: "Habillé(e)" },

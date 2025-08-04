@@ -5,11 +5,14 @@ import ImageViewer from "./ImageViewer";
 import VideoCapture from "./VideoCapture";
 import VideoViewer from "./VideoViewer";
 import { actesOptions } from "../../datas/playerOptions";
+import { useGameStore } from "../../context/gameStore";
 
 export default function GameCard({ card, onValidate, onJoker }) {
   const [timeLeft, setTimeLeft] = useState(null);
   const [capturedImage, setCapturedImage] = useState(null);
   const [capturedVideo, setCapturedVideo] = useState(null);
+
+  const { players } = useGameStore();
 
   // Redémarre le minuteur quand la carte change
   useEffect(() => {
@@ -29,6 +32,16 @@ export default function GameCard({ card, onValidate, onJoker }) {
       setTimeLeft(null);
     }
   }, [card]);
+
+  // Remplacement {H} et {F} par les noms des joueurs
+  const renderText = () => {
+    let txt = card.texte;
+    const homme = players.find(p => p.genre === "H")?.name || "Joueur H";
+    const femme = players.find(p => p.genre === "F")?.name || "Joueur F";
+    txt = txt.replace(/\{H\}/g, homme);
+    txt = txt.replace(/\{F\}/g, femme);
+    return txt;
+  };
 
   const handleValidateImage = () => {
     setCapturedImage(null);
@@ -70,7 +83,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
         )}
 
         <p className="text-primary" style={{ whiteSpace: "pre-line" }}>
-          {card.texte}
+          {renderText()}
         </p>
 
         {/* Boutons capture */}

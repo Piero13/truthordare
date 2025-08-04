@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Button } from "react-bootstrap";
-import { Camera } from "lucide-react";
+// import { Camera } from "lucide-react";
+import { BsCamera } from "react-icons/bs"
 
 export default function ImageCapture({ onCapture }) {
   const fileInputRef = useRef(null);
@@ -18,7 +19,7 @@ export default function ImageCapture({ onCapture }) {
         className="bg-secondary border border-2 border-primary"
         onClick={() => fileInputRef.current.click()}
       >
-        <Camera size={36} color="#531f5e"/>
+        <BsCamera size={36} style={{fill: "#531f5e"}}/>
       </Button>
       <input
         ref={fileInputRef}
