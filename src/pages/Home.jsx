@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Button, Modal, Row, Col, Card } from "react-bootstrap";
+import { Button, Modal, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useGameStore } from "../context/gameStore";
 
@@ -32,13 +32,11 @@ export default function Home() {
   };
 
   return (
-    <Container className=" text-center p-4">
-      <h1 className="mb-8 text-primary">Truth or Dare</h1>
-
+    <section className="text-center p-4">
       <div className="d-flex justify-content-center">
         {/* Affichage joueurs si existants */}
         {players.length === 2 && (
-          <Row className="mb-8">
+          <Row>
             {players.map((p, i) => (
               <Col key={i}>
                 <Card className="pt-3 px-3 border border-2 border-primary text-primary bs-primary">
@@ -56,12 +54,12 @@ export default function Home() {
       </div>
 
       {/* Bouton Jouer */}
-      <Button className="bg-gradient-tertiary border border-2 border-primary" size="lg" onClick={handlePlay}>
+      <Button className="my-10 bg-gradient-tertiary border border-2 border-primary" size="lg" onClick={handlePlay}>
         Jouer
       </Button>
 
       {/* Boutons paramètres */}
-      <div className="mt-8">
+      <div>
         <Button
           variant="secondary"
           className="mb-4 border border-2 border-primary p-2 text-primary"
@@ -71,10 +69,17 @@ export default function Home() {
         </Button>
         <Button
           variant="secondary"
-          className="border border-2 border-primary p-2 text-primary"
+          className="mb-4 border border-2 border-primary p-2 text-primary"
           onClick={() => navigate("/settings")}
         >
           Paramètres de jeu
+        </Button>
+        <Button
+          variant="secondary"
+          className="border border-2 border-primary p-2 text-primary"
+          onClick={() => navigate("/cards")}
+        >
+          Liste des cartes
         </Button>
       </div>
 
@@ -98,6 +103,6 @@ export default function Home() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+    </section>
   );
 }

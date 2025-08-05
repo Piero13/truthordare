@@ -55,7 +55,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
 
   return (
     <>
-      <Card className="p-4 text-center border border-2 border-primary bs-primary">
+      <Card className="p-4 text-center border border-2 border-primary bs-primary mb-4">
         <div className="d-flex justify-content-between align-items-center">
           {card.type === "action" && card.actes?.length > 0 && (
             <span className="fw-bold text-primary">

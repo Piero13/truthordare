@@ -53,12 +53,12 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
     };
 
     return (
-        <Modal show={show} onHide={onClose} size="lg">
-            <Modal.Header closeButton>
+        <Modal show={show} onHide={onClose} fullscreen className="p-0">
+            <Modal.Header className="bg-secondary" closeButton>
                 <Modal.Title>{formData.id ? "Modifier carte" : "Ajouter carte"}</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body className="bg-secondary">
                 <Form>
                     {/* Type */}
                     <Form.Group className="mb-2">
@@ -182,9 +182,9 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                                 onChange={handleImageUpload}
                             />
                             {formData.image && (
-                                <div className="d-flex justify-content-center">
+                                <div className="d-flex justify-content-center bg-white mt-2">
                                     <img
-                                        className="w-90 mt-4"
+                                        className="w-90 p-2"
                                         src={formData.image}
                                         alt="Preview"
                                         style={{ width: "100px", marginTop: "10px" }}
@@ -196,7 +196,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                 </Form>
             </Modal.Body>
             
-            <Modal.Footer>
+            <Modal.Footer className="bg-secondary">
                 {formData.id && (
                     <Button
                         className="border border-primary text-secondary"
