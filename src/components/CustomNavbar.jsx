@@ -1,77 +1,17 @@
-import { useState } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from '../assets/evil_heart.png';
+import { RiSettings4Fill } from "react-icons/ri";
+import { FaHouse } from "react-icons/fa6";
 
 export default function CustomNavbar() {
-    const location = useLocation();
-    const [expanded, setExpanded] = useState(false);
-
-    const isActive = (path) => location.pathname === path;
-
-    const handleLinkClick = () => {
-        setExpanded(false);
-    };
-
     return (
-        <Navbar
-            className="px-3 bg-gradient-quaternary"
-            expand="lg"
-            collapseOnSelect
-            expanded={expanded}
-            onToggle={setExpanded}
-        >
-            <Container fluid className="justify-content-between">
-                <div className="col col-md-5 d-flex align-items-center">
+        <nav className="bg-gradient-quaternary p-2 d-flex justify-content-between align-items-center">
+            <Link to={"/"} title="Home" className="w-content ms-4"><FaHouse size={30} style={{fill : "#531f5e"}}/></Link>
+            <div className="d-flex align-items-center w-content">
                     <img src={ Logo } alt="" className="w-5 me-2"/>
                     <h1 className='font-title text-secondary fw-bold fs-4 fs-md-2 m-0 text-start'>Truth or Dare</h1>
-                </div>
-                <Navbar.Toggle className="w-auto p-1 border-secondary d-flex justify-content-center align-items-center" aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="align-items-center justify-content-md-end">
-                        <Nav.Link
-                            as={Link}
-                            to="/"
-                            onClick={handleLinkClick}
-                            className={`link fs-md-5 text-secondary ${isActive("/") ? "active" : ""}`}
-                        >
-                            Accueil
-                        </Nav.Link>
-                        <Nav.Link
-                            as={Link}
-                            to="/game"
-                            onClick={handleLinkClick}
-                            className={`link fs-md-5 text-secondary ${isActive("/game") ? "active" : ""}`}
-                        >
-                            Jeu
-                        </Nav.Link>
-                        <Nav.Link
-                            as={Link}
-                            to="/players"
-                            onClick={handleLinkClick}
-                            className={`link fs-md-5 text-secondary ${isActive("/players") ? "active" : ""}`}
-                        >
-                            Joueurs
-                        </Nav.Link>
-                        <Nav.Link
-                            as={Link}
-                            to="/settings"
-                            onClick={handleLinkClick}
-                            className={`link fs-md-5 text-secondary ${isActive("/settings") ? "active" : ""}`}
-                        >
-                            Paramètres
-                        </Nav.Link>
-                        <Nav.Link
-                            as={Link}
-                            to="/cards"
-                            onClick={handleLinkClick}
-                            className={`link fs-md-5 text-secondary ${isActive("/cards") ? "active" : ""}`}
-                        >
-                            Cartes
-                        </Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+            </div>
+            <Link to={"/settings"} title="Settings" className="w-content me-4"><RiSettings4Fill size={30} style={{fill : "#531f5e"}}/></Link>
+        </nav>
     );
 }
