@@ -5,7 +5,7 @@ import CardFilters from "../components/Card/CardFilters";
 import CardTable from "../components/Card/CardTable";
 import CardFormModal from "../components/Card/CardFormModal";
 
-const ITEMS_PER_PAGE = 25;
+const ITEMS_PER_PAGE = 20;
 
 export default function CardManager() {
   const [cards, setCards] = useState([]);
