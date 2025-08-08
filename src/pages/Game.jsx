@@ -65,7 +65,7 @@ export default function Game() {
         const matchActes = card.actes.some(a => currentPlayerData.actes.includes(a));
         if (!matchActes) return false;
       }
-      if (card.type === "action" && card.niveau > gameState.currentLevel) {
+      if (card.type === "action" && card.niveau !== gameState.currentLevel) {
         return false;
       }
       if (type && card.type !== type) {

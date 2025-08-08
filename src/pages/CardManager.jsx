@@ -60,11 +60,21 @@ export default function CardManager() {
 
   const handleSave = async (cardData) => {
     const dataToSave = { ...cardData };
+
+    // Si c'est une vérité, on force duree et niveau à 0 ou null
+    if (dataToSave.type === "verite") {
+      dataToSave.duree = 0;
+      dataToSave.niveau = 0;
+      dataToSave.actes = [];  // Optionnel : on peut aussi nettoyer actes
+      dataToSave.image = null; // Optionnel
+    }
+
     if (!editingCard) {
       delete dataToSave.id;
     } else {
       dataToSave.id = editingCard.id;
     }
+
     await setItem("cards", dataToSave);
     setShowFormModal(false);
     loadCards();
@@ -130,7 +140,7 @@ export default function CardManager() {
             niveau: 1,
             actes: [],
             texte: "",
-            duree: 30,
+            duree: 0,
             image: null
           }
         }
