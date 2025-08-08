@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Button, Pagination } from "react-bootstrap";
+import { Container, Button, Pagination, Spinner } from "react-bootstrap";
 import { getAll, setItem, deleteItem } from "../db/db";
 import CardFilters from "../components/Card/CardFilters";
 import CardTable from "../components/Card/CardTable";
@@ -16,6 +16,7 @@ export default function CardManager() {
     acte: "all"
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true); // 💡 loader state
 
   const [showFormModal, setShowFormModal] = useState(false);
   const [editingCard, setEditingCard] = useState(null);
@@ -25,13 +26,14 @@ export default function CardManager() {
   }, []);
 
   useEffect(() => {
-    // reset à la première page quand les filtres changent
     setCurrentPage(1);
   }, [filters]);
 
   const loadCards = async () => {
+    setIsLoading(true); // 👈 start loading
     const data = await getAll("cards");
     setCards(data);
+    setIsLoading(false); // 👈 end loading
   };
 
   const filteredCards = cards.filter(c => {
@@ -61,12 +63,11 @@ export default function CardManager() {
   const handleSave = async (cardData) => {
     const dataToSave = { ...cardData };
 
-    // Si c'est une vérité, on force duree et niveau à 0 ou null
     if (dataToSave.type === "verite") {
       dataToSave.duree = 0;
       dataToSave.niveau = 0;
-      dataToSave.actes = [];  // Optionnel : on peut aussi nettoyer actes
-      dataToSave.image = null; // Optionnel
+      dataToSave.actes = [];
+      dataToSave.image = null;
     }
 
     if (!editingCard) {
@@ -86,6 +87,15 @@ export default function CardManager() {
     }
   };
 
+  if (isLoading) {
+    return (
+      <Container className="d-flex vh-100 justify-content-center align-items-center">
+        <Spinner animation="border" variant="primary" role="status" />
+        <span className="ms-3">Chargement des cartes...</span>
+      </Container>
+    );
+  }
+
   return (
     <Container className="p-4">
       <h2 className="mb-4 text-primary">Liste des cartes</h2>
@@ -102,12 +112,11 @@ export default function CardManager() {
       </div>
 
       <p className="text-primary bg-secondary opacity-75 mb-2">
-          {filteredCards.length} carte{filteredCards.length > 1 ? "s" : ""}
+        {filteredCards.length} carte{filteredCards.length > 1 ? "s" : ""}
       </p>
 
       <CardTable cards={paginatedCards} onEdit={handleEdit} />
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <Pagination className="mt-4 justify-content-center">
           <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
