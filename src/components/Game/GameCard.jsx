@@ -105,7 +105,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
         {card.image && (
           <div className="my-2 p-4">
             <img
-              src={card.image}
+              src={`/${card.image}`}
               alt=""
               style={{ maxWidth: "80%", borderRadius: "8px" }}
             />

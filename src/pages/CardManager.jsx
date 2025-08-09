@@ -91,7 +91,7 @@ export default function CardManager() {
     return (
       <Container className="d-flex vh-100 justify-content-center align-items-center">
         <Spinner animation="border" variant="primary" role="status" />
-        <span className="ms-3">Chargement des cartes...</span>
+        <span className="ms-3">Chargement de la liste des cartes...</span>
       </Container>
     );
   }
