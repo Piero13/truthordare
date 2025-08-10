@@ -54,13 +54,13 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
         <>
             <Modal show={show} onHide={onClose} fullscreen className="p-0">
                 <Modal.Header className="bg-secondary" closeButton>
-                    <Modal.Title>{formData.id ? "Modifier carte" : "Ajouter carte"}</Modal.Title>
+                    <Modal.Title className="text-primary">{formData.id ? "Modifier la carte" : "Ajouter une carte"}</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body className="bg-secondary">
                     <Form>
                         {/* Type */}
-                        <Form.Group className="mb-2">
+                        <Form.Group className="mb-3">
                             <Form.Label>Type</Form.Label>
                             <Form.Select
                                 value={formData.type}
@@ -72,7 +72,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                         </Form.Group>
 
                         {/* Genre */}
-                        <Form.Group className="mb-2">
+                        <Form.Group className="mb-3">
                             <Form.Label>Genre</Form.Label>
                             <Form.Select
                                 value={formData.genre}
@@ -86,7 +86,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
 
                         {/* Niveau */}
                         {formData.type === "action" && (
-                            <Form.Group className="mb-2">
+                            <Form.Group className="mb-3">
                                 <Form.Label>Niveau</Form.Label>
                                 <Form.Select
                                     value={formData.niveau}
@@ -101,7 +101,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
 
                         {/* Actes */}
                         {formData.type === "action" && (
-                            <Form.Group className="mb-2">
+                            <Form.Group className="mb-3">
                                 <Form.Label>Actes</Form.Label>
                                 <div>
                                     {actesOptions.map(opt => (
@@ -127,7 +127,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                         )}
 
                         {/* Texte + Boutons insertion */}
-                        <Form.Group className="mb-2">
+                        <Form.Group className="mb-3">
                             <Form.Label>Texte</Form.Label>
                             <Form.Control
                                 as="textarea"
@@ -158,7 +158,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
 
                         {/* Durée */}
                         {formData.type === "action" && (
-                            <Form.Group className="mb-2">
+                            <Form.Group className="mb-3">
                                 <Form.Label>Durée (secondes)</Form.Label>
                                 <Form.Select
                                     value={formData.duree}
@@ -176,7 +176,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                             <Form.Group className="mb-2">
                                 <Form.Label>Image</Form.Label>
                                 <div className="d-flex flex-column align-items-center">
-                                    <Button className="border border-2 border-primary mb-3" variant="secondary" onClick={() => setShowImageModal(true)}>
+                                    <Button className="border border-primary mb-4 text-primary" variant="secondary" onClick={() => setShowImageModal(true)}>
                                         Choisir une image
                                     </Button>
                                     {formData.image && (
@@ -207,7 +207,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                         </Button>
                     )}
                     <Button 
-                        className="border border-primary"
+                        className="border border-primary mb-4 text-primary"
                         variant="secondary" 
                         onClick={onClose}
                     >

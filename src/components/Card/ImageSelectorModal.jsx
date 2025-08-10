@@ -24,10 +24,10 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
 
   return (
     <Modal show={show} onHide={onClose} centered size="lg">
-      <Modal.Header closeButton>
-        <Modal.Title>Choisir une image</Modal.Title>
+      <Modal.Header closeButton className="bg-secondary">
+        <Modal.Title className="text-primary">Choisir une image</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="bg-secondary">
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
@@ -42,25 +42,24 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
               .replace(/[_-]+/g, " ");  // remplace _ et - par espaces
 
             return (
-              <SwiperSlide key={idx} className="text-center">
+              <SwiperSlide key={idx} className="text-center bg-white pt-4">
                 <img
+                  className="w-auto mh-14"
                   src={img.url}
                   alt={displayName}
                   style={{
-                    maxWidth: "100%",
-                    maxHeight: "400px",
                     borderRadius: "8px"
                   }}
                 />
-                <p className="mt-2 text-primary fw-bold">{displayName}</p>
+                <p className="mt-2 mb-9 text-primary fw-bold">{displayName}</p>
               </SwiperSlide>
             );
           })}
 
         </Swiper>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
+      <Modal.Footer className="bg-secondary">
+        <Button className="border border-primary text-primary" variant="secondary" onClick={onClose}>
           Annuler
         </Button>
         <Button

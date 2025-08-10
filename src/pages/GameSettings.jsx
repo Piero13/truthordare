@@ -49,8 +49,7 @@ export default function GameSettings() {
             onChange={(e) => handleChange("tirage", e.target.value)}
           >
             <option value="aleatoire">Aléatoire</option>
-            <option value="action">Action</option>
-            <option value="verite">Vérité</option>
+            <option value="choix">Au choix</option>
           </Form.Select>
         </Form.Group>
 

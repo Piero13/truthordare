@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <section className="text-center p-4">
+    <section className="text-center p-4 pt-10">
       <div className="d-flex justify-content-center">
         {/* Affichage joueurs si existants */}
         {players.length === 2 && (

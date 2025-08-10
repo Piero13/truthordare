@@ -86,3 +86,14 @@ a:hover {
   width: 100%;
 }
 
+label, textarea {
+  color: $primary;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: $primary !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: $primary !important;
+}
