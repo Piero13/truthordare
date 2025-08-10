@@ -7,6 +7,14 @@ import VideoViewer from "./VideoViewer";
 import { actesOptions } from "../../datas/playerOptions";
 import { useGameStore } from "../../context/gameStore";
 
+// Fonction utilitaire pour retrouver l'URL à partir du nom de fichier
+const getCardImageUrl = (fileName) => {
+  if (!fileName) return "";
+  const images = import.meta.glob("/src/assets/card_pictures/*", { eager: true });
+  const match = Object.keys(images).find((path) => path.endsWith(fileName));
+  return match ? images[match].default : "";
+};
+
 export default function GameCard({ card, onValidate, onJoker }) {
   const [timeLeft, setTimeLeft] = useState(null);
   const [capturedImage, setCapturedImage] = useState(null);
@@ -105,7 +113,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
         {card.image && (
           <div className="my-2 p-4">
             <img
-              src={`/${card.image}`}
+              src={getCardImageUrl(card.image)}
               alt=""
               style={{ maxWidth: "80%", borderRadius: "8px" }}
             />

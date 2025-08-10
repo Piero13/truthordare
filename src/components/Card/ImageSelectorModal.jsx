@@ -2,18 +2,20 @@ import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function ImageSelectorModal({ show, onClose, onSelect }) {
   // Auto-import des images du dossier
-  const images = Object.entries(
-    import.meta.glob("/src/assets/card_pictures/*.{png,jpg,jpeg,webp}", { eager: true })
-  ).map(([path, module]) => ({
-    name: path.split("/").pop(),
-    path: `src/assets/card_pictures/${path.split("/").pop()}`,
-    src: module.default
+  const allImages = import.meta.glob(
+    "/src/assets/card_pictures/*.{png,jpg,jpeg,webp}",
+    { eager: true }
+  );
+
+  const images = Object.entries(allImages).map(([path, module]) => ({
+    name: path.split("/").pop(), // ex: bouche.png
+    url: module.default // URL finale (fonctionne en prod)
   }));
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -37,9 +39,13 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
           {images.map((img, idx) => (
             <SwiperSlide key={idx} className="text-center">
               <img
-                src={img.src}
+                src={img.url}
                 alt={img.name}
-                style={{ maxWidth: "100%", maxHeight: "400px", borderRadius: "8px" }}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "400px",
+                  borderRadius: "8px"
+                }}
               />
               <p className="mt-2 text-primary fw-bold">{img.name}</p>
             </SwiperSlide>
@@ -53,7 +59,8 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
         <Button
           variant="primary"
           onClick={() => {
-            onSelect(images[activeIndex].path);
+            // Ici on renvoie uniquement le nom du fichier à sauvegarder en BDD
+            onSelect(images[activeIndex].name);
             onClose();
           }}
         >

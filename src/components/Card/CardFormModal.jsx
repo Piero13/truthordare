@@ -4,6 +4,14 @@ import { useState, useEffect, useRef } from "react";
 import { AiOutlineMan, AiOutlineWoman } from "react-icons/ai";
 import ImageSelectorModal from "./ImageSelectorModal";
 
+// Fonction utilitaire pour retrouver l'URL à partir du nom de fichier
+const getCardImageUrl = (fileName) => {
+    if (!fileName) return "";
+    const images = import.meta.glob("/src/assets/card_pictures/*", { eager: true });
+    const match = Object.keys(images).find((path) => path.endsWith(fileName));
+    return match ? images[match].default : "";
+};
+
 export default function CardFormModal({ show, onClose, onSave, onDelete, initialData }) {
     const [formData, setFormData] = useState(initialData);
     const textareaRef = useRef(null);
@@ -174,7 +182,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                                     {formData.image && (
                                         <img
                                             className="h-15 w-auto mx-5"
-                                            src={`/${formData.image}`}
+                                            src={getCardImageUrl(formData.image)}
                                             alt="Preview"
                                         />
                                     )}
@@ -218,8 +226,8 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
             <ImageSelectorModal
                 show={showImageModal}
                 onClose={() => setShowImageModal(false)}
-                onSelect={(path) => {
-                    handleChange("image", path);
+                onSelect={(fileName) => {
+                    handleChange("image", fileName); // On ne stocke que le nom
                     setShowImageModal(false);
                 }}
             />
