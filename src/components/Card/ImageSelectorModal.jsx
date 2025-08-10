@@ -36,20 +36,27 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
           slidesPerView={1}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
-          {images.map((img, idx) => (
-            <SwiperSlide key={idx} className="text-center">
-              <img
-                src={img.url}
-                alt={img.name}
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "400px",
-                  borderRadius: "8px"
-                }}
-              />
-              <p className="mt-2 text-primary fw-bold">{img.name}</p>
-            </SwiperSlide>
-          ))}
+          {images.map((img, idx) => {
+            const displayName = img.name
+              .replace(/\.[^/.]+$/, "") // supprime l'extension
+              .replace(/[_-]+/g, " ");  // remplace _ et - par espaces
+
+            return (
+              <SwiperSlide key={idx} className="text-center">
+                <img
+                  src={img.url}
+                  alt={displayName}
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "400px",
+                    borderRadius: "8px"
+                  }}
+                />
+                <p className="mt-2 text-primary fw-bold">{displayName}</p>
+              </SwiperSlide>
+            );
+          })}
+
         </Swiper>
       </Modal.Body>
       <Modal.Footer>
