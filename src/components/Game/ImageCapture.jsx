@@ -16,10 +16,10 @@ export default function ImageCapture({ onCapture }) {
   return (
     <>
       <Button
-        className="bg-secondary border border-2 border-primary rounded-5 bs-primary"
+        className="bg-gradient-tertiary border border-2 border-primary rounded-5 bs-primary"
         onClick={() => fileInputRef.current.click()}
       >
-        <BsCamera size={36} style={{fill: "#531f5e"}}/>
+        <BsCamera size={36} style={{fill: "#fff0f7"}}/>
       </Button>
       <input
         ref={fileInputRef}

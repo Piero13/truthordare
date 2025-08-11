@@ -95,7 +95,7 @@ export default function GameCard({ card, onValidate, onJoker }) {
     <>
       <audio ref={audioRef} src="/sounds/times-up.mp3" preload="auto" />
 
-      <Card className="p-4 text-center border border-2 border-primary mb-4 rounded-4 bs-tertiary">
+      <Card className="p-4 text-center border border-1 border-primary rounded-4 bs-primary bg-secondary">
         <div className="d-flex justify-content-between align-items-center">
           {card.type === "action" && card.actes?.length > 0 && (
             <span className="fw-bold text-primary">
@@ -141,15 +141,13 @@ export default function GameCard({ card, onValidate, onJoker }) {
             Valider
           </Button>
           <Button
-            className="border border-2 border-primary p-2 w-30 rounded-5 bs-primary"
-            variant="warning"
+            className="border border-2 border-primary p-2 w-30 rounded-5 bs-primary bg-gradient-warning text-primary"
             onClick={onJoker}
           >
             Joker
           </Button>
           <Button
-            className="border border-2 border-primary text-secondary p-2 w-30 rounded-5 bs-primary"
-            variant="quaternary"
+            className="border border-2 border-primary text-secondary bg-gradient-danger p-2 w-30 rounded-5 bs-primary"
             onClick={() => {
               stopTimer();
               onValidate(false);

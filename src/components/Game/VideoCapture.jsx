@@ -15,10 +15,10 @@ export default function VideoCapture({ onCapture }) {
   return (
     <>
       <Button
-        className="bg-secondary border border-2 border-primary rounded-5 bs-primary"
+        className="bg-gradient-tertiary border border-2 border-primary rounded-5 bs-primary"
         onClick={() => fileInputRef.current?.click()}
       >
-        <BsCameraVideo size={36} style={{fill: "#531f5e"}}/>
+        <BsCameraVideo size={36} style={{fill: "#fff0f7"}}/>
       </Button>
       <input
         type="file"

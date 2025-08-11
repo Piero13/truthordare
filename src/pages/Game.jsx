@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { Container, Alert, Button } from "react-bootstrap";
+import { Container, Alert, Button, Modal } from "react-bootstrap";
 import { useGameStore } from "../context/gameStore";
 import { getAll } from "../db/db";
-import { motion, AnimatePresence } from "framer-motion"; // eslint-disable-line no-unused-vars
+import { AnimatePresence, motion } from "framer-motion";
 import GameSetupModal from "../components/Game/GameSetupModal";
 import GameScoreboard from "../components/Game/GameScoreboard";
 import GameControls from "../components/Game/GameControls";
@@ -56,7 +56,7 @@ export default function Game() {
       if (
         card.genre &&
         card.genre !== "all" &&
-        card.genre !== "M" && // ✅ genre mixte autorisé pour tout le monde
+        card.genre !== "M" &&
         card.genre !== currentPlayerData.genre
       ) {
         return false;
@@ -158,52 +158,64 @@ export default function Game() {
 
       {!gameState.showSetup && (
         <>
-            <div className="d-flex justify-content-center">
-                <GameScoreboard
-                    players={players}
-                    scores={gameState.scores}
-                    currentPlayer={gameState.currentPlayer}
-                />
-            </div>
-            <p className="text-center text-primary">Niveau actuel : {gameState.currentLevel}</p>
+          <div className="d-flex justify-content-center">
+            <GameScoreboard
+              players={players}
+              scores={gameState.scores}
+              currentPlayer={gameState.currentPlayer}
+            />
+          </div>
+          <p className="text-center text-primary">Niveau actuel : {gameState.currentLevel}</p>
 
-            {gameState.gameOver && (
-                <Alert variant="success" className="text-center">
-                🎉 Partie terminée !<br />
-                Scores finaux : {players[0].name} {gameState.scores[0]} pts -{" "}
-                {players[1].name} {gameState.scores[1]} pts
-                <div className="mt-3">
-                    <Button className="bg-gradient-tertiary" onClick={restartGame}>
-                    Rejouer
-                    </Button>
-                </div>
-                </Alert>
-            )}
+          {gameState.gameOver && (
+            <Alert variant="success" className="text-center">
+              🎉 Partie terminée !<br />
+              Scores finaux : {players[0].name} {gameState.scores[0]} pts -{" "}
+              {players[1].name} {gameState.scores[1]} pts
+              <div className="mt-3">
+                <Button className="bg-gradient-tertiary" onClick={restartGame}>
+                  Rejouer
+                </Button>
+              </div>
+            </Alert>
+          )}
 
-            {!gameState.gameOver && !gameState.currentCard && (
-                <GameControls
-                  modeTirage={gameSettings.tirage}
-                  onChoose={handleChoose}
-                />
-            )}
+          {!gameState.gameOver && !gameState.currentCard && (
+            <GameControls
+              modeTirage={gameSettings.tirage}
+              onChoose={handleChoose}
+            />
+          )}
 
-            <AnimatePresence mode="wait">
+          {/* Modal GameCard */}
+          <AnimatePresence>
             {!gameState.gameOver && gameState.currentCard && (
-                <motion.div
-                  key={gameState.currentCard.id}
-                  initial={{ opacity:0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <GameCard
-                    card={gameState.currentCard}
-                    onValidate={handleValidate}
-                    onJoker={handleJoker}
-                  />
-                </motion.div>
+              <Modal
+                show={!!gameState.currentCard}
+                onHide={() => setGameState({ currentCard: null })}
+                centered
+                backdrop="static"
+                contentClassName="border-0 rounded-4"
+              >
+                <Modal.Body className="d-flex justify-content-center align-items-center p-0">
+                  <motion.div
+                    key={gameState.currentCard.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-100"
+                  >
+                    <GameCard
+                      card={gameState.currentCard}
+                      onValidate={handleValidate}
+                      onJoker={handleJoker}
+                    />
+                  </motion.div>
+                </Modal.Body>
+              </Modal>
             )}
-            </AnimatePresence>
+          </AnimatePresence>
         </>
       )}
     </Container>

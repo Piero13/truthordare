@@ -10,7 +10,10 @@ $utilities: map-merge(
                 primary: linear-gradient(to top left, #001B48, $primary),
                 secondary: linear-gradient(to top left, #d63384, #ab73b6),
                 tertiary: linear-gradient(to top left, #ab73b6, #531f5e),
-                quaternary: linear-gradient(to top left, #ab73b6, #d63384)
+                quaternary: linear-gradient(to top left, #ab73b6, #d63384),
+                warning: linear-gradient(to top left, #fffab0, #ffee00),
+                danger: linear-gradient(to top left, #da737f, $quaternary),
+                light: linear-gradient(to top left, $secondary, #f07db6)
             )
         ),
         "background": (
