@@ -3,7 +3,7 @@ import { genreOptions, actesOptions } from "../../datas/playerOptions";
 
 export default function CardFilters({ filters, onChange }) {
   return (
-    <Form className="mb-4 d-flex flex-wrap gap-2">
+    <Form className="mb-6 d-flex flex-wrap gap-2">
       <Form.Select
         className="border border-2 border-primary"
         value={filters.type}

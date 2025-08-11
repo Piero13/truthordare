@@ -39,7 +39,7 @@ export default function Home() {
           <Row>
             {players.map((p, i) => (
               <Col key={i}>
-                <Card className="pt-3 px-3 border border-2 border-primary text-primary bs-primary">
+                <Card className="pt-3 px-3 border border-2 border-primary text-primary rounded-4 bs-primary">
                   <h5>{p.name || `Joueur ${i + 1}`}</h5>
                   {hasOngoingGame ? (
                     <p>{gameState.scores[i]} pts</p>
@@ -54,7 +54,7 @@ export default function Home() {
       </div>
 
       {/* Bouton Jouer */}
-      <Button className="my-10 bg-gradient-tertiary border border-2 border-primary" size="lg" onClick={handlePlay}>
+      <Button className="my-10 bg-gradient-tertiary border border-2 border-primary rounded-5 bs-primary" size="lg" onClick={handlePlay}>
         Jouer
       </Button>
 
@@ -62,21 +62,21 @@ export default function Home() {
       <div>
         <Button
           variant="secondary"
-          className="mb-4 border border-2 border-primary p-2 text-primary"
+          className="mb-4 border border-2 border-primary p-2 text-primary rounded-5 bs-primary"
           onClick={() => navigate("/players")}
         >
           Paramètres des joueurs
         </Button>
         <Button
           variant="secondary"
-          className="mb-4 border border-2 border-primary p-2 text-primary"
+          className="mb-4 border border-2 border-primary p-2 text-primary rounded-5 bs-primary"
           onClick={() => navigate("/settings")}
         >
           Paramètres de jeu
         </Button>
         <Button
           variant="secondary"
-          className="border border-2 border-primary p-2 text-primary"
+          className="border border-2 border-primary p-2 text-primary rounded-5 bs-primary"
           onClick={() => navigate("/cards")}
         >
           Liste des cartes

@@ -102,9 +102,9 @@ export default function CardManager() {
 
       <CardFilters filters={filters} onChange={setFilters} />
 
-      <div className="d-flex justify-content-between align-items-center mb-4">
+      <div className="d-flex justify-content-between align-items-center mb-6">
         <Button
-          className="bg-gradient-tertiary border border-2 border-primary p-2"
+          className="bg-gradient-tertiary border border-2 border-primary p-2 rounded-5 bs-primary"
           onClick={handleAdd}
         >
           Ajouter une carte

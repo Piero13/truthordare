@@ -165,7 +165,7 @@ export default function Game() {
                     currentPlayer={gameState.currentPlayer}
                 />
             </div>
-            <p className="text-center">Niveau actuel : {gameState.currentLevel}</p>
+            <p className="text-center text-primary">Niveau actuel : {gameState.currentLevel}</p>
 
             {gameState.gameOver && (
                 <Alert variant="success" className="text-center">

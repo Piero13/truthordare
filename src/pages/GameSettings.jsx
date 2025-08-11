@@ -41,7 +41,7 @@ export default function GameSettings() {
 
       <Form>
         {/* Mode de tirage */}
-        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-4 bs-primary">
           <Form.Label className="text-primary">Mode de tirage</Form.Label>
           <Form.Select
             className="border border-2 border-primary"
@@ -54,7 +54,7 @@ export default function GameSettings() {
         </Form.Group>
 
         {/* Durée */}
-        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-4 bs-primary">
           <Form.Label className="text-primary">Durée (cartes totales par joueur)</Form.Label>
           <Form.Select
             className="border border-2 border-primary"
@@ -70,7 +70,7 @@ export default function GameSettings() {
         </Form.Group>
 
         {/* Niveau max */}
-        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+        <Form.Group className="mb-4 border border-2 border-primary p-2 bg-secondary rounded-4 bs-primary">
           <Form.Label className="text-primary">Niveau max</Form.Label>
           <Form.Select
             className="border border-2 border-primary"
@@ -87,7 +87,7 @@ export default function GameSettings() {
 
         {/* Pourcentage d'actions */}
         {form.tirage === "aleatoire" && (
-          <Form.Group className="mb-8 border border-2 border-primary p-2 bg-secondary rounded-2 bs-primary">
+          <Form.Group className="mb-8 border border-2 border-primary p-2 bg-secondary rounded-4 bs-primary">
             <Form.Label className="text-primary">Pourcentage d'actions</Form.Label>
             <div className="d-flex align-items-center">
               <Form.Range
@@ -104,7 +104,7 @@ export default function GameSettings() {
           </Form.Group>
         )}
 
-        <Button className="bg-gradient-tertiary border border-2 border-primary p-2" onClick={handleSave}>
+        <Button className="bg-gradient-tertiary border border-2 border-primary p-2 rounded-5 bs-primary" onClick={handleSave}>
           Enregistrer
         </Button>
       </Form>

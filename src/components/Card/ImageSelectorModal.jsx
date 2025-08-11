@@ -23,7 +23,7 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
   if (images.length === 0) return null;
 
   return (
-    <Modal show={show} onHide={onClose} centered size="lg">
+    <Modal show={show} onHide={onClose} centered size="lg" fullscreen>
       <Modal.Header closeButton className="bg-secondary">
         <Modal.Title className="text-primary">Choisir une image</Modal.Title>
       </Modal.Header>
@@ -59,11 +59,12 @@ export default function ImageSelectorModal({ show, onClose, onSelect }) {
         </Swiper>
       </Modal.Body>
       <Modal.Footer className="bg-secondary">
-        <Button className="border border-primary text-primary" variant="secondary" onClick={onClose}>
+        <Button className="border border-primary text-primary rounded-5 bs-primary mb-4 p-2" variant="secondary" onClick={onClose}>
           Annuler
         </Button>
         <Button
-          variant="primary"
+          className="border border-primary rounded-5 bs-primary bg-gradient-tertiary text-secondary mb-4 p-2"
+          variant="secondary"
           onClick={() => {
             // Ici on renvoie uniquement le nom du fichier à sauvegarder en BDD
             onSelect(images[activeIndex].name);

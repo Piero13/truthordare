@@ -53,7 +53,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
     return (
         <>
             <Modal show={show} onHide={onClose} fullscreen className="p-0">
-                <Modal.Header className="bg-secondary" closeButton>
+                <Modal.Header className="bg-secondary border-bottom border-primary" closeButton>
                     <Modal.Title className="text-primary">{formData.id ? "Modifier la carte" : "Ajouter une carte"}</Modal.Title>
                 </Modal.Header>
 
@@ -139,16 +139,14 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                             <div className="mt-2 d-flex justify-content-center">
                                 <Button
                                     size="sm"
-                                    variant="outline-primary"
-                                    className="me-4 w-7"
+                                    className="me-4 w-7 rounded-5 bg-none border border-primary"
                                     onClick={() => insertAtCursor("{H}")}
                                 >
                                     <AiOutlineMan size={24} style={{fill: "#6610f2"}}/>
                                 </Button>
                                 <Button
                                     size="sm"
-                                    variant="outline-primary"
-                                    className="w-7"
+                                    className="w-7 rounded-5 bg-none border border-primary"
                                     onClick={() => insertAtCursor("{F}")}
                                 >
                                     <AiOutlineWoman size={24} style={{fill: "#d63384"}}/>
@@ -176,7 +174,7 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                             <Form.Group className="mb-2">
                                 <Form.Label>Image</Form.Label>
                                 <div className="d-flex flex-column align-items-center">
-                                    <Button className="border border-primary mb-4 text-primary" variant="secondary" onClick={() => setShowImageModal(true)}>
+                                    <Button className="w-50 border border-primary mb-4 text-secondary bg-gradient-tertiary bs-primary rounded-5" onClick={() => setShowImageModal(true)}>
                                         Choisir une image
                                     </Button>
                                     {formData.image && (
@@ -192,10 +190,10 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                     </Form>
                 </Modal.Body>
                 
-                <Modal.Footer className="bg-secondary">
+                <Modal.Footer className="bg-secondary border-top border-primary p-4">
                     {formData.id && (
                         <Button
-                            className="border border-primary text-secondary"
+                            className="border border-primary text-secondary rounded-5 mb-4 bs-primary"
                             variant="quaternary"
                             onClick={() => {
                                 if (window.confirm("Supprimer cette carte ?")) {
@@ -207,14 +205,14 @@ export default function CardFormModal({ show, onClose, onSave, onDelete, initial
                         </Button>
                     )}
                     <Button 
-                        className="border border-primary mb-4 text-primary"
+                        className="border border-primary mb-4 text-primary rounded-5 bs-primary"
                         variant="secondary" 
                         onClick={onClose}
                     >
                         Annuler
                     </Button>
                     <Button
-                        className="border border-primary bg-gradient-tertiary"
+                        className="border border-primary bg-gradient-tertiary rounded-5 bs-primary"
                         onClick={handleSubmit}
                     >
                         Enregistrer

@@ -6,7 +6,7 @@ export default function GameScoreboard({ players, scores, currentPlayer }) {
       {players.map((p, index) => (
         <Col key={index}>
           <Card
-            className="p-2 text-center text-primary"
+            className="p-2 text-center text-primary rounded-5"
             style={{
               border: index === currentPlayer ? "2px solid #531f5e" : "1px solid #531f5e",
               boxShadow: index === currentPlayer ? "0 0 10px #531f5e" : "none",

@@ -8,7 +8,7 @@ $utilities: map-merge(
             class: bg-gradient,
             values: (
                 primary: linear-gradient(to top left, #001B48, $primary),
-                secondary: linear-gradient(to top left, $secondary, #ab73b6),
+                secondary: linear-gradient(to top left, #d63384, #ab73b6),
                 tertiary: linear-gradient(to top left, #ab73b6, #531f5e),
                 quaternary: linear-gradient(to top left, #ab73b6, #d63384)
             )
@@ -26,8 +26,8 @@ $utilities: map-merge(
             values: (
                 primary: 3px 3px 5px $primary,
                 secondary: 3px 3px 5px $secondary,
-                tertiary: 3px 3px 5px $tertiary,
-                quaternary: 3px 3px 5px $quaternary
+                tertiary: 3px 3px 5px $bg-pink,
+                quaternary: 3px 3px 5px $quaternary,
             )
         ),
         "font-size": (
